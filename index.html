@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>うんこ面接 🐰💩</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#fff0dc;
+ font-family:system-ui,sans-serif;
+ color:#614638;
+ text-align:center;
+}
+main{
+ max-width:430px;
+ min-height:100dvh;
+ margin:auto;
+ padding:15px;
+ background:#fff8ed;
+}
+h1{margin:8px 0;font-size:28px}
+.sub{font-size:13px;color:#987967}
+.stats{display:flex;gap:8px;margin:15px 0}
+.stat{
+ flex:1;background:white;
+ border:2px solid #eed6ba;
+ border-radius:16px;padding:10px 3px;
+}
+.stat b{display:block;font-size:24px}
+.stat small{font-size:11px}
+#scene{
+ position:relative;
+ height:340px;
+ overflow:hidden;
+ border:4px solid #dfb993;
+ border-radius:22px;
+ background:linear-gradient(#d8f2f2 0 70%,#e8c7a5 70%);
+}
+.window{
+ position:absolute;top:22px;left:20px;
+ width:75px;height:85px;
+ background:#a6d9ef;
+ border:7px solid #fff9e8;
+ border-radius:8px;
+}
+.window:after{
+ content:"";position:absolute;
+ top:35px;left:0;width:100%;
+ border-top:5px solid white;
+}
+.desk{
+ position:absolute;
+ left:5%;top:190px;
+ width:90%;height:24px;
+ background:#b7794e;
+ border-radius:10px;z-index:4;
+ box-shadow:0 12px #95603e;
+}
+.person{
+ position:absolute;top:72px;left:13%;
+ width:105px;height:145px;z-index:3;
+}
+.head{
+ position:absolute;top:0;left:18px;
+ width:72px;height:77px;
+ background:#ffd5ae;border-radius:45%;
+ border:3px solid #694d40;
+}
+.hair{
+ position:absolute;top:-4px;left:17px;
+ width:74px;height:30px;
+ background:#50382d;
+ border-radius:50% 50% 25% 25%;
+}
+.eyes{
+ position:absolute;top:37px;left:33px;
+ font-size:19px;letter-spacing:7px;
+}
+.suit{
+ position:absolute;top:72px;left:4px;
+ width:100px;height:85px;
+ background:#566b83;
+ border-radius:35px 35px 5px 5px;
+}
+.tie{
+ position:absolute;top:81px;left:49px;
+ width:12px;height:48px;
+ background:#e67e77;
+ clip-path:polygon(50% 0,100% 20%,75% 100%,25% 100%,0 20%);
+}
+.rabbit{
+ position:absolute;right:9%;top:93px;
+ width:110px;height:175px;z-index:3;
+ animation:bob 1s infinite alternate;
+}
+.ear{
+ position:absolute;top:-51px;
+ width:30px;height:85px;
+ background:white;
+ border:3px solid #b8a7a0;
+ border-radius:60% 60% 35% 35%;
+}
+.ear:after{
+ content:"";position:absolute;
+ inset:9px 7px;
+ background:#ffb6c8;border-radius:50%;
+}
+.e1{left:19px;transform:rotate(-12deg)}
+.e2{right:19px;transform:rotate(12deg)}
+.face{
+ position:absolute;top:14px;left:4px;
+ width:102px;height:100px;
+ background:white;
+ border:3px solid #b8a7a0;
+ border-radius:48%;
+}
+.r-eyes{
+ position:absolute;top:34px;left:22px;
+ font-size:22px;letter-spacing:13px;
+}
+.nose{
+ position:absolute;top:61px;left:45px;
+ color:#e99bad;font-size:17px;
+}
+.body{
+ position:absolute;top:101px;left:20px;
+ width:73px;height:65px;
+ background:white;
+ border:3px solid #b8a7a0;
+ border-radius:45%;
+}
+.poop{
+ position:absolute;width:17px;height:15px;
+ background:#91603e;border-radius:50%;
+ border:2px solid #70492f;
+ z-index:5;
+ animation:drop .35s ease-out;
+}
+@keyframes drop{
+ from{transform:translateY(-25px) scale(.4);opacity:.3}
+ to{transform:translateY(0) scale(1);opacity:1}
+}
+@keyframes bob{
+ from{transform:translateY(0)}
+ to{transform:translateY(3px)}
+}
+#speech{
+ position:absolute;top:12px;right:12px;
+ background:white;padding:9px 13px;
+ border-radius:15px;font-size:13px;
+ z-index:8;max-width:180px;
+ box-shadow:0 3px 0 #e5d6c7;
+}
+#message{
+ margin:14px 0;
+ min-height:45px;font-weight:bold;
+}
+button{
+ border:0;border-radius:18px;
+ padding:17px 20px;font-size:19px;
+ font-weight:bold;cursor:pointer;
+ touch-action:manipulation;
+}
+#start{background:#83c9a2;color:#234f3c;width:100%}
+#action{
+ background:#e9a474;color:#66391f;
+ width:100%;font-size:26px;
+ box-shadow:0 6px #bd7851;
+}
+#action:active{transform:translateY(4px);box-shadow:0 2px #bd7851}
+button:disabled{opacity:.45}
+#again{background:#86bddd;width:100%;margin-top:10px}
+#result{
+ display:none;background:#fff;
+ border:3px solid #e9c6a5;
+ padding:16px;border-radius:18px;
+ margin-top:15px;
+}
+#result h2{font-size:30px;margin:4px}
+#result p{font-size:15px}
+.footer{font-size:11px;color:#a48a79;margin:16px}
+.shake{animation:shake .3s 3!important}
+@keyframes shake{
+ 0%,100%{transform:translateX(0)}
+ 25%{transform:translateX(-7px)}
+ 75%{transform:translateX(7px)}
+}
+</style>
+</head>
+<body>
+<main>
+<h1>🐰 うんこ面接！</h1>
+<div class="sub">まじめな面接で、こっそり3粒。</div>
+
+<div class="stats">
+ <div class="stat"><small>のこり時間</small><b id="time">5.0</b></div>
+ <div class="stat"><small>うんこ</small><b id="count">0 / 3</b></div>
+ <div class="stat"><small>最高評価</small><b id="best">---</b></div>
+</div>
+
+<div id="scene">
+ <div class="window"></div>
+ <div id="speech">面接を始めます。</div>
+ <div class="person" id="person">
+  <div class="suit"></div>
+  <div class="tie"></div>
+  <div class="head"></div>
+  <div class="hair"></div>
+  <div class="eyes" id="eyes">⌣⌣</div>
+ </div>
+ <div class="rabbit" id="rabbit">
+  <div class="ear e1"></div>
+  <div class="ear e2"></div>
+  <div class="body"></div>
+  <div class="face">
+   <div class="r-eyes" id="rabbitEyes">●●</div>
+   <div class="nose">♥</div>
+  </div>
+ </div>
+ <div class="desk"></div>
+</div>
+
+<div id="message">面接官が書類を見ている間に押そう！</div>
+<button id="start">🐰 面接をはじめる</button>
+<button id="action" disabled style="display:none">💩 こっそり出す！</button>
+
+<div id="result">
+ <h2 id="resultTitle"></h2>
+ <p id="resultText"></p>
+ <button id="again">もう一度面接する ↻</button>
+ <button id="share" style="margin-top:10px;background:#eee;width:100%;font-size:15px">結果をシェア ↗</button>
+</div>
+<div class="footer">インストール不要・1プレイ5秒</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let running=false,poops=0,startTime=0,last=0;
+let looking=false,nextLook=0,lookEnd=0,raf=0;
+let best=localStorage.getItem("unkoBest")||"---";
+$("best").textContent=best;
+let audio;
+function sound(freq=450,dur=.09){
+ try{
+ audio=audio||new(window.AudioContext||window.webkitAudioContext)();
+ const o=audio.createOscillator(),g=audio.createGain();
+ o.connect(g);g.connect(audio.destination);
+ o.frequency.value=freq;
+ o.type="sine";
+ g.gain.setValueAtTime(.08,audio.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+dur);
+ o.start();o.stop(audio.currentTime+dur);
+ }catch(e){}
+}
+function reset(){
+ cancelAnimationFrame(raf);
+ running=false;poops=0;looking=false;
+ $("time").textContent="5.0";
+ $("count").textContent="0 / 3";
+ $("eyes").textContent="⌣⌣";
+ $("rabbitEyes").textContent="●●";
+ $("speech").textContent="面接を始めます。";
+ $("message").textContent="面接官が書類を見ている間に押そう！";
+ $("result").style.display="none";
+ $("start").style.display="block";
+ $("action").style.display="none";
+ $("action").disabled=true;
+ document.querySelectorAll(".poop").forEach(e=>e.remove());
+}
+function begin(){
+ reset();
+ running=true;
+ $("start").style.display="none";
+ $("action").style.display="block";
+ $("action").disabled=false;
+ startTime=performance.now();
+ nextLook=650+Math.random()*450;
+ last=startTime;
+ $("speech").textContent="履歴書を確認します…";
+ raf=requestAnimationFrame(tick);
+}
+function tick(now){
+ if(!running)return;
+ let elapsed=now-startTime;
+ let remaining=Math.max(0,5-elapsed/1000);
+ $("time").textContent=remaining.toFixed(1);
+ if(elapsed>=5000){finish(false,"時間切れ！");return}
+ if(!looking&&elapsed>=nextLook){
+ looking=true;
+ lookEnd=elapsed+400+Math.random()*420;
+ $("eyes").textContent="●●";
+ $("speech").textContent="……ん？";
+ sound(270,.06);
+ }
+ if(looking&&elapsed>=lookEnd){
+ looking=false;
+ nextLook=elapsed+550+Math.random()*650;
+ $("eyes").textContent="⌣⌣";
+ $("speech").textContent="なるほど……";
+ }
+ raf=requestAnimationFrame(tick);
+}
+function doPoop(){
+ if(!running)return;
+ if(looking){
+ $("rabbitEyes").textContent="××";
+ $("rabbit").classList.add("shake");
+ sound(130,.3);
+ finish(false,"現行犯で不採用！");
+ return;
+ }
+ poops++;
+ $("count").textContent=poops+" / 3";
+ $("rabbitEyes").textContent="> <";
+ $("message").textContent=["","ぷりっ！","ぷりぷりっ！","ぷりりっ！"][poops];
+ sound(300+poops*100,.1);
+ const p=document.createElement("div");
+ p.className="poop";
+ p.style.right=(11+Math.random()*12)+"%";
+ p.style.top=(255+Math.random()*25)+"px";
+ $("scene").appendChild(p);
+ setTimeout(()=>$("rabbitEyes").textContent="●●",180);
+ if(poops>=3)finish(true,"3粒達成！");
+}
+function finish(win,reason){
+ if(!running)return;
+ running=false;cancelAnimationFrame(raf);
+ $("action").disabled=true;
+ $("result").style.display="block";
+ $("rabbit").classList.remove("shake");
+ let sec=(performance.now()-startTime)/1000;
+ let grade=win?(sec<2.5?"S":sec<3.7?"A":"B"):"D";
+ $("resultTitle").textContent=win?"🎉 採用！":"💥 不採用！";
+ const comments=win?[
+ "弊社の即戦力として採用します。",
+ "面接官は最後まで気づかなかった。",
+ "謎の才能が評価されました。"
+ ]:[
+ "会議室に証拠が残りました。",
+ "面接官がすべて見ていました。",
+ "次の面接では慎重に。"
+ ];
+ $("resultText").textContent=reason+" 評価："+grade+
+ "｜"+comments[Math.floor(Math.random()*comments.length)];
+ $("speech").textContent=win?"ぜひ弊社へ！":"ちょっと待って！？";
+ $("eyes").textContent=win?"⌣⌣":"●●";
+ $("message").textContent=win?"奇跡の内定！":"残念！再挑戦しよう！";
+ if(win){
+ const rank={S:3,A:2,B:1,"---":0};
+ if(rank[grade]>(rank[best]||0)){
+ best=grade;
+ localStorage.setItem("unkoBest",best);
+ $("best").textContent=best;
+ }
+ sound(700,.18);
+ }else sound(160,.25);
+}
+$("start").onclick=begin;
+$("action").onclick=doPoop;
+$("again").onclick=reset;
+$("share").onclick=async()=>{
+ const txt="🐰💩 うんこ面接に挑戦！\n"+
+ $("resultTitle").textContent+"\n"+
+ $("resultText").textContent+"\n"+
+ location.href;
+ if(navigator.share){
+ try{await navigator.share({text:txt})}catch(e){}
+ }else{
+ try{await navigator.clipboard.writeText(txt);
+ alert("結果をコピーしました！")}catch(e){
+ alert(txt);
+ }
+ }
+};
+</script>
+</body>
+</html>
